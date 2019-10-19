@@ -1,6 +1,15 @@
 # myIP
 Library to get public network IP using myip.com service. Based on Qt libraries. Written in C++.
 
+# Installation
+Enter in directory myIP:
+
+<em>$> qmake</em>
+
+<em>$> make</em>
+
+<em>$> sudo make install</em>
+
 # Usage:
 To use libmyIP in classic widgets application, you must connect the lybrary's signal IPready to a private or public slot created in the window/widget class.
 The slot will receive an ipdata class from IPready signal. Please, look the ipdata structure in myip.h file for more informations.
