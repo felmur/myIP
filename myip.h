@@ -17,7 +17,7 @@
 #include "qt/QtNetwork/QNetworkAccessManager"
 #include "qt/QtNetwork/QNetworkReply"
 
-#define DEBUG 1
+#define DEBUG 0 // set to 1 if you want verbose debug
 
 extern const char *libname;
 extern const char *version;
