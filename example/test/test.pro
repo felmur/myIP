@@ -1,13 +1,7 @@
 QT -= gui
 
-QT += core network
-
-LIBS = -ljsoncpp
-
-TEMPLATE = lib
-DEFINES += MYIP_LIBRARY
-
-CONFIG += c++11
+CONFIG += c++11 console
+CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -21,21 +15,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    myip.cpp
+        main.cpp \
+        myqcoreapplication.cpp
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+LIBS += -lmyIP
 
 HEADERS += \
-    myIP_global.h \
-    myip.h
-
-
-target.path = /usr/lib
-inc.path = /usr/include
-inc.files = myip.h myIP_global.h
-doc.path = /usr/share/libmyIP
-doc.files = README.md LICENSE
-
-INSTALLS += target inc doc
-
-DISTFILES += \
-    LICENSE \
-    README.md
+    myqcoreapplication.h
