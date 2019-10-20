@@ -12,10 +12,11 @@
 #define MYIP_H
 
 #include "myIP_global.h"
-#include "QObject"
-#include "QString"
-#include "qt/QtNetwork/QNetworkAccessManager"
-#include "qt/QtNetwork/QNetworkReply"
+#include "QtCore/QObject"
+#include "QtCore/QString"
+#include "QtNetwork/QNetworkAccessManager"
+#include "QtNetwork/QNetworkReply"
+
 
 #define DEBUG 0 // set to 1 if you want verbose debug
 
@@ -36,6 +37,7 @@ public:
     uint32_t ipnum;
     QString country;
     QString cc;
+    QNetworkReply::NetworkError err;
 };
 
 class MYIP_EXPORT MyIP  : public QObject

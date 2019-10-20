@@ -13,7 +13,7 @@
 
 
 const char *libname="myip";
-const char *version="1.0.0";
+const char *version="1.0.1";
 const char *author="Felice Murolo";
 const char *location="Salerno, Italy";
 const char *copyright="(c) 2019 - All rights reserved";
@@ -55,6 +55,7 @@ void MyIP::init(){
 
 void MyIP::setIP(QNetworkReply *r){
     QString s;
+    myip.err = r->error();
     if (r->error() == QNetworkReply::NoError) {
         s = r->readAll();
         const int rawJsonLength = static_cast<int>(s.length());

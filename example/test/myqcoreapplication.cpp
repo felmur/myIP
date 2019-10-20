@@ -18,10 +18,16 @@ myQCoreApplication::~myQCoreApplication(){
 }
 
 void myQCoreApplication::printIP(ipdata ipd){
-    qDebug("My IP is: %s", ipd.ip.toUtf8().data());
-    qDebug("My numeric IP is: %d", ipd.ipnum);
-    qDebug("My country is: %s", ipd.country.toUtf8().data());
-    qDebug("My cc country is: %s", ipd.cc.toUtf8().data());
+    if (ipd.err == QNetworkReply::NoError ) {
+        qDebug("My IP is: %s", ipd.ip.toUtf8().data());
+        qDebug("My numeric IP is: %d", ipd.ipnum);
+        qDebug("My country is: %s", ipd.country.toUtf8().data());
+        qDebug("My cc country is: %s", ipd.cc.toUtf8().data());
+    }
+    else {
+        qCritical("Library has returned error: %d", ipd.err);
+        qCritical("See https://doc.qt.io/qt-5/qnetworkreply.html#NetworkError-enum for more information");
+    }
     qDebug("\nPress CTRL-C to break");
 }
 
