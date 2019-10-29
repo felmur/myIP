@@ -21,13 +21,13 @@
 #define DEBUG 0 // set to 1 if you want verbose debug
 
 extern const char *libname;
-extern const char *version;
-extern const char *author;
-extern const char *location;
-extern const char *copyright;
-extern const char *email;
+extern const char *libversion;
+extern const char *libauthor;
+extern const char *liblocation;
+extern const char *libcopyright;
+extern const char *libemail;
 
-extern const char *url;
+extern const char *liburl;
 
 class ipdata
 {

@@ -5,7 +5,7 @@ QT += core network
 LIBS = -ljsoncpp
 
 TEMPLATE = lib
-VERSION = 1.0.1
+VERSION = 1.0.2
 
 DEFINES += MYIP_LIBRARY
 

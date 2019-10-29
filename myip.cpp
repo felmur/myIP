@@ -13,12 +13,12 @@
 
 
 const char *libname="myip";
-const char *version="1.0.1";
-const char *author="Felice Murolo";
-const char *location="Salerno, Italy";
-const char *copyright="(c) 2019 - All rights reserved";
-const char *email="linuxboy@giove.tk";
-const char *url = "https://api.myip.com";
+const char *libversion="1.0.2";
+const char *libauthor="Felice Murolo";
+const char *liblocation="Salerno, Italy";
+const char *libcopyright="(c) 2019 - All rights reserved";
+const char *libemail="linuxboy@giove.tk";
+const char *liburl = "https://api.myip.com";
 
 ipdata::ipdata()
 {
@@ -46,7 +46,7 @@ void MyIP::init(){
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
     config.setProtocol(QSsl::TlsV1_2);
     request.setSslConfiguration(config);
-    request.setUrl(QUrl(url));
+    request.setUrl(QUrl(liburl));
     request.setHeader(QNetworkRequest::ServerHeader, "application/json");
 
     manager->get(request);
@@ -81,8 +81,8 @@ void MyIP::setIP(QNetworkReply *r){
 }
 
 QString MyIP::getVersion() {
-    qDebug("%s v%s\n%s by %s %s\nemail: %s", libname, version, copyright, author, location, email);
-    return version;
+    qDebug("%s v%s\n%s by %s %s\nemail: %s", libname, libversion, libcopyright, libauthor, liblocation, libemail);
+    return libversion;
 }
 
 
