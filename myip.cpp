@@ -70,6 +70,7 @@ void MyIP::setIP(QNetworkReply *r){
             QStringList p = myip.ip.split(".");
             myip.ipnum_le = static_cast<uint32_t> (256*256*256*p[3].toInt() + 256*256*p[2].toInt() + 256*p[1].toInt() + p[0].toInt());
             myip.ipnum_be = static_cast<uint32_t> (256*256*256*p[0].toInt() + 256*256*p[1].toInt() + 256*p[2].toInt() + p[3].toInt());
+            myip.ipnum = myip.ipnum_le;
             if (DEBUG) {
                 qDebug("My public IP is: %s", myip.ip.toUtf8().data());
                 qDebug("My public little_endian numerical IP is: %d", myip.ipnum_le);
