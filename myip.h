@@ -36,7 +36,7 @@ public:
     QString ip;
     uint32_t ipnum_le;  // low endian format numeric ipnum
     uint32_t ipnum_be;  // big endian format numeric ipnum
-    uint32_t ipnum      // same as ipnum_le, for compatibility
+    uint32_t ipnum;      // same as ipnum_le, for compatibility
     QString country;
     QString cc;
     QNetworkReply::NetworkError err;
