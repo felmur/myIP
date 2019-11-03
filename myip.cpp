@@ -13,7 +13,7 @@
 
 
 const char *libname="myip";
-const char *libversion="1.0.2";
+const char *libversion="1.0.3";
 const char *libauthor="Felice Murolo";
 const char *liblocation="Salerno, Italy";
 const char *libcopyright="(c) 2019 - All rights reserved";
@@ -68,10 +68,12 @@ void MyIP::setIP(QNetworkReply *r){
             myip.country = root["country"].asString().data();
             myip.cc = root["cc"].asString().data();
             QStringList p = myip.ip.split(".");
-            myip.ipnum = static_cast<uint32_t> (256*256*256*p[0].toInt() + 256*256*p[1].toInt() + 256*p[2].toInt() + p[3].toInt());
+            myip.ipnum_le = static_cast<uint32_t> (256*256*256*p[3].toInt() + 256*256*p[2].toInt() + 256*p[1].toInt() + p[0].toInt());
+            myip.ipnum_be = static_cast<uint32_t> (256*256*256*p[0].toInt() + 256*256*p[1].toInt() + 256*p[2].toInt() + p[3].toInt());
             if (DEBUG) {
                 qDebug("My public IP is: %s", myip.ip.toUtf8().data());
-                qDebug("My public numerical IP is: %d", myip.ipnum);
+                qDebug("My public little_endian numerical IP is: %d", myip.ipnum_le);
+                qDebug("My public big_endian numerical IP is: %d", myip.ipnum_be);
                 qDebug("My country is: %s", myip.country.toUtf8().data());
                 qDebug("My cc country is: %s", myip.cc.toUtf8().data());
             }
